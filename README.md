@@ -6,14 +6,14 @@
 
 
 
-MediaCMS is a modern, fully featured open source video and media CMS. It is developed to meet the needs of modern web platforms for viewing and sharing media. It can be used to build a small to medium video and media portal within minutes.
+MediaCMSは、モダンで完全な機能を備えたオープンソースの動画およびメディアCMSです。メディアの閲覧と共有を行う最新のWebプラットフォームのニーズを満たすために開発されました。数分以内に小規模から中規模の動画およびメディアポータルを構築するために使用できます。
 
-It is built mostly using the modern stack Django + React and includes a REST API.
+主にDjango + Reactのモダンなスタックを使用して構築されており、REST APIが含まれています。
 
-A demo is available at https://demo.mediacms.io
+デモは https://demo.mediacms.io でご覧いただけます。
 
 
-## Screenshots
+## スクリーンショット
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/mediacms-io/mediacms/main/docs/images/index.jpg" width="340">
@@ -21,116 +21,116 @@ A demo is available at https://demo.mediacms.io
     <img src="https://raw.githubusercontent.com/mediacms-io/mediacms/main/docs/images/embed.jpg" width="340">
 </p>
 
-## Features
-- **Complete control over your data**: host it yourself!
-- **Modern technologies**: Django/Python/Celery, React.
-- **Support for multiple publishing workflows**: public, private, unlisted and custom
-- **Role-Based Access Control (RBAC)**: create RBAC categories and connect users to groups with view/edit access on their media
-- **Automatic transcription**: through integration with Whisper running locally
-- **Multiple media types support**: video, audio,  image, pdf
-- **Multiple media classification options**: categories, tags and custom
-- **Multiple media sharing options**: social media share, videos embed code generation
-- **Video Trimmer**: trim video, replace, save as new or create segments
-- **SAML support**: with ability to add mappings to system roles and groups
-- **Easy media searching**: enriched with live search functionality
-- **Playlists for audio and video content**: create playlists, add and reorder content
-- **Responsive design**: including light and dark themes
-- **Advanced users management**: allow self registration, invite only, closed.
-- **Configurable actions**: allow download, add comments, add likes, dislikes, report media
-- **Configuration options**: change logos, fonts, styling, add more pages
-- **Enhanced video player**: customized video.js player with multiple resolution and playback speed options
-- **Multiple transcoding profiles**: sane defaults for multiple dimensions (144p, 240p, 360p, 480p, 720p, 1080p) and multiple profiles (h264, h265, vp9)
-- **Adaptive video streaming**: possible through HLS protocol
-- **Subtitles/CC**: support for multilingual subtitle files
-- **Scalable transcoding**: transcoding through priorities. Experimental support for remote workers
-- **Chunked file uploads**: for pausable/resumable upload of content
-- **REST API**: Documented through Swagger
-- **Translation**: Most of the CMS is translated to a number of languages
+## 機能
+- **データの完全な管理**: 自分自身でホスティング可能！
+- **モダンな技術**: Django/Python/Celery、React
+- **複数の公開ワークフローのサポート**: パブリック、プライベート、非公開、カスタム
+- **ロールベースアクセス制御（RBAC）**: RBACカテゴリを作成し、ユーザーをグループに接続してメディアへの閲覧/編集アクセスを管理
+- **自動文字起こし**: ローカルで実行されるWhisperとの統合による機能
+- **複数のメディアタイプのサポート**: 動画、音声、画像、PDF
+- **複数のメディア分類オプション**: カテゴリ、タグ、カスタム
+- **複数のメディア共有オプション**: ソーシャルメディア共有、動画埋め込みコード生成
+- **ビデオトリマー**: 動画のトリミング、置換、新規保存、セグメント作成
+- **SAMLサポート**: システムロールとグループへのマッピング追加機能付き
+- **簡単なメディア検索**: ライブ検索機能による充実した検索
+- **音声および動画コンテンツのプレイリスト**: プレイリストの作成、コンテンツの追加と並べ替え
+- **レスポンシブデザイン**: ライトテーマとダークテーマを含む
+- **高度なユーザー管理**: 自己登録、招待のみ、クローズドの選択が可能
+- **設定可能なアクション**: ダウンロード、コメント追加、いいね、よくない、メディア報告の許可
+- **設定オプション**: ロゴ、フォント、スタイリングの変更、ページの追加
+- **拡張ビデオプレーヤー**: 複数の解像度と再生速度オプション付きのカスタマイズされたvideo.jsプレーヤー
+- **複数のトランスコーディングプロファイル**: 複数の解像度（144p、240p、360p、480p、720p、1080p）と複数のプロファイル（h264、h265、vp9）のための適切なデフォルト設定
+- **アダプティブビデオストリーミング**: HLSプロトコルによる実現
+- **字幕/クローズドキャプション**: 多言語字幕ファイルのサポート
+- **スケーラブルなトランスコーディング**: 優先順位によるトランスコーディング。リモートワーカーの実験的サポート
+- **チャンク分割されたファイルアップロード**: コンテンツの一時停止/再開可能なアップロード
+- **REST API**: Swaggerによるドキュメント化
+- **翻訳**: CMSのほとんどが多数の言語に翻訳されています
 
-## Example cases
+## 利用例
 
-- **Universities, schools, education.** Administrators and editors keep what content will be published, students are not distracted with advertisements and irrelevant content, plus they have the ability to select either to stream or download content.
-- **Organization sensitive content.** In cases where content is sensitive and cannot be uploaded to external sites.
-- **Build a great community.** MediaCMS can be customized (URLs, logos, fonts, aesthetics) so that you create a highly customized video portal for your community!
-- **Personal portal.** Organize, categorize and host your content the way you prefer.
-
-
-## Philosophy
-
-We believe there's a need for quality open source web applications that can be used to build community portals and support collaboration.
-We have three goals for MediaCMS: a) deliver all functionality one would expect from a modern system, b) allow for easy installation and maintenance, c) allow easy customization and addition of features.
+- **大学、学校、教育機関。** 管理者と編集者が公開するコンテンツを管理し、学生は広告や無関係なコンテンツに気を取られることなく、ストリーミングまたはダウンロードを選択できます。
+- **組織の機密コンテンツ。** コンテンツが機密性が高く、外部サイトにアップロードできない場合。
+- **素晴らしいコミュニティの構築。** MediaCMSはカスタマイズ可能（URL、ロゴ、フォント、デザイン）なので、コミュニティ向けの高度にカスタマイズされた動画ポータルを作成できます！
+- **個人ポータル。** お好みの方法でコンテンツを整理、分類、ホスティングできます。
 
 
-## License
+## 理念
 
-MediaCMS is released under [GNU Affero General Public License v3.0 license](LICENSE.txt).
+私たちは、コミュニティポータルを構築し、コラボレーションをサポートするために使用できる、高品質なオープンソースWebアプリケーションの必要性があると信じています。
+MediaCMSには3つの目標があります：a) 最新システムに期待されるすべての機能を提供する、b) 簡単なインストールとメンテナンスを可能にする、c) 機能の簡単なカスタマイズと追加を可能にする。
+
+
+## ライセンス
+
+MediaCMSは[GNU Affero General Public License v3.0 license](LICENSE.txt)の下でリリースされています。
 Copyright Markos Gogoulos.
 
 
-## Support and paid services
+## サポートと有料サービス
 
-We provide custom installations, development of extra functionality, migration from existing systems, integrations with legacy systems, training and support. Checkout our [services page](https://mediacms.io/#services/) for more information.
+カスタムインストール、追加機能の開発、既存システムからの移行、レガシーシステムとの統合、トレーニング、サポートを提供しています。詳細については、[サービスページ](https://mediacms.io/#services/)をご覧ください。
 
-### Commercial Hostings
+### 商用ホスティング
 **Elestio**
 
-You can deploy MediaCMS on Elestio using one-click deployment. Elestio supports MediaCMS by providing revenue share so go ahead and click below to deploy and use MediaCMS.
+Elestioでワンクリックデプロイを使用してMediaCMSをデプロイできます。Elestioは収益分配を提供してMediaCMSをサポートしているので、以下をクリックしてMediaCMSをデプロイして使用してください。
 
 [![Deploy on Elestio](https://elest.io/images/logos/deploy-to-elestio-btn.png)](https://elest.io/open-source/mediacms)
 
-## Hardware considerations
+## ハードウェアの考慮事項
 
-For a small to medium installation, with a few hours of video uploaded daily, and a few hundreds of active daily users viewing content, 4GB Ram / 2-4 CPUs as minimum is ok. For a larger installation with many hours of video uploaded daily, consider adding more CPUs and more Ram.
+小規模から中規模のインストールで、毎日数時間の動画がアップロードされ、数百人のアクティブな日次ユーザーがコンテンツを閲覧する場合、最低4GB RAM / 2-4 CPUで問題ありません。毎日多くの時間の動画がアップロードされる大規模なインストールの場合は、より多くのCPUとRAMの追加を検討してください。
 
-In terms of disk space, think of what the needs will be. A general rule is to multiply by three the size of the expected uploaded videos (since the system keeps original versions, encoded versions plus HLS), so if you receive 1G of videos daily and maintain all of them, you should consider a 1T disk across a year (1G * 3 * 365).
+ディスクスペースに関しては、必要量を考慮してください。一般的な目安は、予想されるアップロード動画のサイズを3倍にすることです（システムはオリジナルバージョン、エンコードバージョン、HLSを保持するため）。したがって、毎日1Gの動画を受信し、すべてを保持する場合、1年間で1Tのディスクを検討する必要があります（1G * 3 * 365）。
 
-In order to support automatic transcriptions through Whisper, consider more CPUs.
+Whisperによる自動文字起こしをサポートするには、より多くのCPUを検討してください。
 
-## Installation / Maintanance
+## インストール / メンテナンス
 
-There are two ways to run MediaCMS, through Docker Compose and through installing it on a server via an automation script that installs and configures all needed services. Find the related pages:
+MediaCMSを実行する方法は2つあります。Docker Composeを使用する方法と、必要なすべてのサービスをインストールおよび設定する自動化スクリプトを介してサーバーにインストールする方法です。関連ページを参照してください：
 
-- [Single Server](docs/admins_docs.md#2-server-installation) page
-- [Docker Compose](docs/admins_docs.md#3-docker-installation) page
+- [シングルサーバー](docs/admins_docs.md#2-server-installation)ページ
+- [Docker Compose](docs/admins_docs.md#3-docker-installation)ページ
 
-  A complete guide can be found on the blog post [How to self-host and share your videos in 2021](https://medium.com/@MediaCMS.io/how-to-self-host-and-share-your-videos-in-2021-14067e3b291b).
+  完全なガイドは、ブログ記事[How to self-host and share your videos in 2021](https://medium.com/@MediaCMS.io/how-to-self-host-and-share-your-videos-in-2021-14067e3b291b)で見つけることができます。
 
-## Documentation
+## ドキュメント
 
-* [Users documentation](docs/user_docs.md) page
-* [Administrators documentation](docs/admins_docs.md) page
-* [Developers documentation](docs/developers_docs.md) page
-* [Configuration](docs/admins_docs.md#5-configuration) page
-* [Transcoding](docs/transcoding.md) page
-* [Developer Experience](docs/dev_exp.md) page
-* [Media Permissions](docs/media_permissions.md) page
-
-
-## Technology
-
-This software uses the following list of awesome technologies: Python, Django, Django Rest Framework, Celery, PostgreSQL, Redis, Nginx, uWSGI, React, Fine Uploader, video.js, FFMPEG, Bento4
+* [ユーザードキュメント](docs/user_docs.md)ページ
+* [管理者ドキュメント](docs/admins_docs.md)ページ
+* [開発者ドキュメント](docs/developers_docs.md)ページ
+* [設定](docs/admins_docs.md#5-configuration)ページ
+* [トランスコーディング](docs/transcoding.md)ページ
+* [開発者エクスペリエンス](docs/dev_exp.md)ページ
+* [メディアパーミッション](docs/media_permissions.md)ページ
 
 
-## Who is using it
-- **Multiple Universities** for hosting educational videos
-- **Cinemata** non-profit media, technology and culture organization - https://cinemata.org
-- **Critical Commons** public media archive and fair use advocacy network - https://criticalcommons.org
+## 技術
+
+このソフトウェアは、以下の素晴らしい技術リストを使用しています：Python、Django、Django Rest Framework、Celery、PostgreSQL、Redis、Nginx、uWSGI、React、Fine Uploader、video.js、FFMPEG、Bento4
+
+
+## 利用組織
+- **複数の大学** 教育動画のホスティング用
+- **Cinemata** 非営利メディア、テクノロジー、カルチャー組織 - https://cinemata.org
+- **Critical Commons** パブリックメディアアーカイブとフェアユース提唱ネットワーク - https://criticalcommons.org
 - **American Association of Gynecologic Laparoscopists** - https://surgeryu.org/
 
 
-## How to contribute
+## 貢献方法
 
-If you like the project, here's a few things you can do
-- Hire us, for custom installations, training, support, maintenance work
-- Suggest us to others that are interested to hire us
-- Write a blog post/article about MediaCMS
-- Share on social media about the project
-- Open issues, participate on [discussions](https://github.com/mediacms-io/mediacms/discussions), report bugs, suggest ideas
-- [Show and tell](https://github.com/mediacms-io/mediacms/discussions/categories/show-and-tell) how you are using the project
-- Star the project
-- Add functionality, work on a PR, fix an issue!
+プロジェクトが気に入った場合、以下のことができます
+- カスタムインストール、トレーニング、サポート、メンテナンス作業のために私たちを雇用する
+- 私たちを雇用することに興味のある他の人に推薦する
+- MediaCMSに関するブログ記事/記事を書く
+- プロジェクトについてソーシャルメディアで共有する
+- イシューを開く、[ディスカッション](https://github.com/mediacms-io/mediacms/discussions)に参加する、バグを報告する、アイデアを提案する
+- プロジェクトをどのように使用しているかを[Show and tell](https://github.com/mediacms-io/mediacms/discussions/categories/show-and-tell)で共有する
+- プロジェクトにスターを付ける
+- 機能を追加する、PRに取り組む、イシューを修正する！
 
 
-## Contact
+## お問い合わせ
 
 info@mediacms.io
