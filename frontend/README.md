@@ -1,40 +1,40 @@
-# MediaCMS Web Client (demo)
+# MediaCMS Webクライアント（デモ）
 
-### **Requirements**
+### **要件**
 
-- nodejs: version >= 14.17.0
+- nodejs: バージョン >= 14.17.0
 
 ---
 
-### **Installation**
+### **インストール**
 
     npm install
 
 ---
 
-### **Development**
+### **開発**
 
     npm run start
 
-Open in browser: [http://localhost:8088](http://localhost:8088)
+ブラウザで開く：[http://localhost:8088](http://localhost:8088)
 
 ---
 
-### **Build**
+### **ビルド**
 
     npm run dist
 
-Generates the folder "**_frontend/dist_**".
+フォルダ "**_frontend/dist_**" を生成します。
 
-Copy folders and files from "**_frontend/dist/static_**" into "**_static_**".
+"**_frontend/dist/static_**" からフォルダとファイルを "**_static_**" にコピーします。
 
 ---
 
-### Test Scripts
+### テストスクリプト
 
 #### test
 
-Run all unit tests once.
+すべてのユニットテストを一度実行します。
 
 ```sh
 npm run test
@@ -42,7 +42,7 @@ npm run test
 
 #### test-watch
 
-Run tests in watch mode for development.
+開発用にウォッチモードでテストを実行します。
 
 ```sh
 npm run test-watch
@@ -50,7 +50,7 @@ npm run test-watch
 
 #### test-coverage
 
-Run tests with coverage reporting in `./coverage` folder.
+`./coverage`フォルダでカバレッジレポート付きでテストを実行します。
 
 ```sh
 npm run test-coverage
@@ -58,7 +58,7 @@ npm run test-coverage
 
 #### test-coverage-watch
 
-Run tests with coverage in watch mode.
+ウォッチモードでカバレッジ付きでテストを実行します。
 
 ```sh
 npm run test-coverage-watch
