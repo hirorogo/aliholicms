@@ -1,50 +1,50 @@
-# Transcoding in MediaCMS
+# MediaCMSのトランスコーディング
 
-MediaCMS uses FFmpeg for transcoding media files. Most of the transcoding settings and configurations are defined in `files/helpers.py`.
+MediaCMSはメディアファイルのトランスコーディングにFFmpegを使用します。トランスコーディングの設定と構成のほとんどは`files/helpers.py`で定義されています。
 
-## Configuration Options
+## 設定オプション
 
-Several transcoding parameters can be customized in `cms/settings.py`:
+いくつかのトランスコーディングパラメータは`cms/settings.py`でカスタマイズできます：
 
-### FFmpeg Preset
+### FFmpegプリセット
 
-The default FFmpeg preset is set to "medium". This setting controls the encoding speed and compression efficiency trade-off.
+デフォルトのFFmpegプリセットは「medium」に設定されています。この設定は、エンコード速度と圧縮効率のトレードオフを制御します。
 
 ```python
 # ffmpeg options
 FFMPEG_DEFAULT_PRESET = "medium" # see https://trac.ffmpeg.org/wiki/Encode/H.264
 ```
 
-Available presets include:
+利用可能なプリセットには以下が含まれます：
 - ultrafast
 - superfast
 - veryfast
 - faster
 - fast
-- medium (default)
+- medium（デフォルト）
 - slow
 - slower
 - veryslow
 
-Faster presets result in larger file sizes for the same quality, while slower presets provide better compression but take longer to encode.
+より高速なプリセットは同じ品質でより大きなファイルサイズになり、より遅いプリセットはより良い圧縮を提供しますが、エンコードに時間がかかります。
 
-### Other Transcoding Settings
+### その他のトランスコーディング設定
 
-Additional transcoding settings in `settings.py` include:
+`settings.py`の追加のトランスコーディング設定には以下が含まれます：
 
-- `FFMPEG_COMMAND`: Path to the FFmpeg executable
-- `FFPROBE_COMMAND`: Path to the FFprobe executable
-- `DO_NOT_TRANSCODE_VIDEO`: If set to True, only the original video is shown without transcoding
-- `CHUNKIZE_VIDEO_DURATION`: For videos longer than this duration (in seconds), they get split into chunks and encoded independently
-- `VIDEO_CHUNKS_DURATION`: Duration of each chunk (must be smaller than CHUNKIZE_VIDEO_DURATION)
-- `MINIMUM_RESOLUTIONS_TO_ENCODE`: Always encode these resolutions, even if upscaling is required
+- `FFMPEG_COMMAND`: FFmpeg実行可能ファイルへのパス
+- `FFPROBE_COMMAND`: FFprobe実行可能ファイルへのパス
+- `DO_NOT_TRANSCODE_VIDEO`: Trueに設定すると、トランスコードせずに元の動画のみが表示されます
+- `CHUNKIZE_VIDEO_DURATION`: この期間（秒単位）より長い動画は、チャンクに分割され、個別にエンコードされます
+- `VIDEO_CHUNKS_DURATION`: 各チャンクの期間（CHUNKIZE_VIDEO_DURATIONより小さくする必要があります）
+- `MINIMUM_RESOLUTIONS_TO_ENCODE`: アップスケーリングが必要な場合でも、常にこれらの解像度をエンコードします
 
-## Advanced Configuration
+## 高度な設定
 
-For more advanced transcoding settings, you may need to modify the following in `files/helpers.py`:
+より高度なトランスコーディング設定については、`files/helpers.py`で次を変更する必要がある場合があります：
 
-- Video bitrates for different codecs and resolutions
-- Audio encoders and bitrates
-- CRF (Constant Rate Factor) values
-- Keyframe settings
-- Encoding parameters for different codecs (H.264, H.265, VP9)
+- さまざまなコーデックと解像度の動画ビットレート
+- オーディオエンコーダーとビットレート
+- CRF（Constant Rate Factor）値
+- キーフレーム設定
+- さまざまなコーデック（H.264、H.265、VP9）のエンコードパラメータ

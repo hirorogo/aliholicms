@@ -1,10 +1,10 @@
-## Description
-<!-- Describe the changes introduced by this PR for the reviewers to fully understand. -->
+## 説明
+<!-- レビュアーが完全に理解できるように、このPRによって導入された変更を説明してください。 -->
 
 
-## Steps
-<!-- Actions to be done pre and post deployment -->
-*Pre-deploy*
+## ステップ
+<!-- デプロイ前後に実行する必要があるアクション -->
+*デプロイ前*
 
-*Post-deploy*
+*デプロイ後*
 

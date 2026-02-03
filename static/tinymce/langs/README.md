@@ -1,3 +1,3 @@
-This is where language files should be placed.
+これは言語ファイルを配置する場所です。
 
-Please DO NOT translate these directly, use this service instead: https://crowdin.com/project/tinymce
+直接翻訳しないでください。代わりにこのサービスを使用してください：https://crowdin.com/project/tinymce

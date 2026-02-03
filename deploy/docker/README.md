@@ -1,3 +1,3 @@
-# MediaCMS on Docker
+# Docker上のMediaCMS
 
-See: [Details](../../docs/Docker_deployment.md)
+詳細：[詳細](../../docs/Docker_deployment.md)

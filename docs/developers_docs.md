@@ -1,26 +1,26 @@
-# Developers documentation
+# 開発者ドキュメント
 
-## Table of contents
-- [1. Welcome](#1-welcome)
-- [2. System architecture](#2-system-architecture)
-- [3. API documentation](#3-api-documentation)
-- [4. How to contribute](#4-how-to-contribute)
-- [5. Working with Docker tips](#5-working-with-docker-tips)
-- [6. Working with the automated tests](#6-working-with-the-automated-tests)
-- [7. How video is transcoded](#7-how-video-is-transcoded)
+## 目次
+- [1. ようこそ](#1-ようこそ)
+- [2. システムアーキテクチャ](#2-システムアーキテクチャ)
+- [3. APIドキュメント](#3-apiドキュメント)
+- [4. 貢献方法](#4-貢献方法)
+- [5. Dockerでの作業のヒント](#5-dockerでの作業のヒント)
+- [6. 自動テストでの作業](#6-自動テストでの作業)
+- [7. 動画のトランスコード方法](#7-動画のトランスコード方法)
 
-## 1. Welcome
-This page is created for MediaCMS developers and contains related information.
+## 1. ようこそ
+このページはMediaCMSの開発者向けに作成され、関連情報が含まれています。
 
-## 2. System architecture
-to be written
+## 2. システムアーキテクチャ
+執筆予定
 
-## 3. API documentation
-API is documented using Swagger - checkout ot http://your_installation/swagger - example https://demo.mediacms.io/swagger/
-This page allows you to login to perform authenticated actions - it will also use your session if logged in.
+## 3. APIドキュメント
+APIはSwaggerを使用してドキュメント化されています - http://your_installation/swagger でご覧ください - 例：https://demo.mediacms.io/swagger/
+このページでは、認証されたアクションを実行するためにログインできます - ログインしている場合はセッションも使用されます。
 
 
-An example of working with Python requests library:
+Python requestsライブラリでの作業例：
 
 ```
 import requests
@@ -39,117 +39,117 @@ requests.post(
 )
 ```
 
-## 4. How to contribute
-Before you send a PR, make sure your code is properly formatted. For that, use `pre-commit install` to install a pre-commit hook and run `pre-commit run --all` and fix everything before you commit. This pre-commit will check for your code lint everytime you commit a code.
+## 4. 貢献方法
+PRを送信する前に、コードが適切にフォーマットされていることを確認してください。そのために、`pre-commit install`を使用してpre-commitフックをインストールし、`pre-commit run --all`を実行してコミット前にすべてを修正してください。このpre-commitは、コードをコミットするたびにコードのlintをチェックします。
 
-Checkout the [Code of conduct page](../CODE_OF_CONDUCT.md) if you want to contribute to this repository
+このリポジトリに貢献したい場合は、[行動規範ページ](../CODE_OF_CONDUCT.md)をご覧ください
 
 
-## 5. Working with Docker tips
+## 5. Dockerでの作業のヒント
 
-To perform the Docker installation, follow instructions to install Docker + Docker compose (docs/Docker_Compose.md) and then build/start docker-compose-dev.yaml . This will run the frontend application on port 8088 on top of all other containers (including the Django web application on port 80)
+Dockerインストールを実行するには、Docker + Docker composeのインストール手順（docs/Docker_Compose.md）に従い、その後docker-compose-dev.yamlをビルド/起動します。これにより、他のすべてのコンテナ（ポート80のDjango Webアプリケーションを含む）の上でポート8088でフロントエンドアプリケーションが実行されます
 
 ```
 docker compose -f docker-compose-dev.yaml build
 docker compose -f docker-compose-dev.yaml up
 ```
 
-An `admin` user is created during the installation process. Its attributes are defined in `docker-compose-dev.yaml`:
+インストールプロセス中に`admin`ユーザーが作成されます。その属性は`docker-compose-dev.yaml`で定義されています：
 ```
 ADMIN_USER: 'admin'
 ADMIN_PASSWORD: 'admin'
 ADMIN_EMAIL: 'admin@localhost'
 ```
 
-### Frontend application changes
-Eg change `frontend/src/static/js/pages/HomePage.tsx` , dev application refreshes in a number of seconds (hot reloading) and I see the changes, once I'm happy I can run
+### フロントエンドアプリケーションの変更
+例えば`frontend/src/static/js/pages/HomePage.tsx`を変更すると、開発アプリケーションが数秒で更新され（ホットリロード）、変更を確認できます。満足したら、次を実行できます
 
 ```
 docker compose -f docker-compose-dev.yaml exec -T frontend npm run dist
 ```
 
-And then in order for the changes to be visible on the application while served through nginx,
+そして、nginxを介して提供されるアプリケーションで変更が表示されるようにするには、
 
 ```
 cp -r frontend/dist/static/* static/
 ```
 
-POST calls: cannot be performed through the dev server, you have to make through the normal application (port 80) and then see changes on the dev application on port 8088.
-Make sure the urls are set on `frontend/.env` if different than localhost
+POST呼び出し：開発サーバーを介して実行できません。通常のアプリケーション（ポート80）を介して実行し、ポート8088の開発アプリケーションで変更を確認する必要があります。
+異なる場合は、`frontend/.env`でURLが設定されていることを確認してください
 
 
-Media page: need to upload content through the main application (nginx/port 80), and then use an id for page media.html, for example `http://localhost:8088/media.html?m=nc9rotyWP`
+メディアページ：メインアプリケーション（nginx/ポート80）を介してコンテンツをアップロードし、ページmedia.htmlのIDを使用する必要があります。例：`http://localhost:8088/media.html?m=nc9rotyWP`
 
-There are some issues with CORS too to resolve, in order for some pages to function, eg the manage comments page
+一部のページが機能するために解決すべきCORSの問題もあります。例えば、コメント管理ページ
 
 ```
 http://localhost:8088/manage-media.html manage_media
 ```
 
-### Backend application changes
-After I make changes to the django application (eg make a change on `files/forms.py`) in order to see the changes I have to restart the web container
+### バックエンドアプリケーションの変更
+djangoアプリケーションに変更を加えた後（例えば`files/forms.py`を変更）、変更を確認するにはwebコンテナを再起動する必要があります
 
 ```
 docker compose -f docker-compose-dev.yaml restart web
 ```
 
-## How video is transcoded
+## 動画のトランスコード方法
 
-Original files get uploaded to the application server, and they get stored there as FileFields.
+オリジナルファイルはアプリケーションサーバーにアップロードされ、FileFieldsとして保存されます。
 
-If files are videos and the duration is greater than a number (defined on settings, I think 4minutes), they are also broken in chunks, so one Encode object per chunk, for all enabled EncodeProfiles.
+ファイルが動画で、期間が一定の数値（設定で定義、おそらく4分）より長い場合、チャンクにも分割されるため、すべての有効なEncodeProfilesに対して、チャンクごとに1つのEncodeオブジェクトが作成されます。
 
-Then the workers start picking Encode objects and they transcode the chunks, so if a chunk gets transcoded correctly, the original file (the small chunk) gets replaced by the transcoded file, and the Encode object status is marked as 'success'.
-
-
-original.mp4 (1G, 720px)--> Encode1 (100MB, 240px, chunk=True), Encode2 (100MB, 240px, chunk=True)...EncodeXX (100MB, 720px, chunk=True) ---> when all Encode objects are success, for a resolution, they get concatenated to the original_resolution.mp4 file and this gets stored as Encode object (chunk=False). This is what is available for download.
-
-Apparently the Encode object is used to store Encoded files that are served eventually (chunk=False, status='success'), but also files while they are on their way to get transcoded (chunk=True, status='pending/etc')
-
-(Parenthesis opening)
-there is also an experimental small service (not commited to the repo currently) that speaks only through API and a) gets tasks to run, b) returns results. So it makes a request and receives an ffmpeg command, plus a file, it runs the ffmpeg command, and returns the result.I've used this mechanism on a number of installations to migrate existing videos through more servers/cpu and has worked with only one problem, some temporary files needed to be removed from the servers (through a periodic task, not so big problem)
-(Parenthesis closing)
+その後、ワーカーはEncodeオブジェクトの取得を開始し、チャンクをトランスコードします。チャンクが正しくトランスコードされると、オリジナルファイル（小さなチャンク）がトランスコードされたファイルに置き換えられ、Encodeオブジェクトのステータスが「success」としてマークされます。
 
 
-When the Encode object is marked as success and chunk=False, and thus is available for download/stream, there is a task that gets started and saves an HLS version of the file (1 mp4-->x number of small .ts chunks). This would be FILES_C
+original.mp4（1G、720px）--> Encode1（100MB、240px、chunk=True）、Encode2（100MB、240px、chunk=True）...EncodeXX（100MB、720px、chunk=True）---> すべてのEncodeオブジェクトが解像度に対してsuccessになると、original_resolution.mp4ファイルに連結され、これがEncodeオブジェクトとして保存されます（chunk=False）。これがダウンロード可能になります。
 
-This mechanism allows for workers that have access on the same filesystem (either localhost, or through a shared network filesystem, eg NFS/EFS) to work on the same time and produce results.
+明らかに、Encodeオブジェクトは、最終的に提供されるエンコードされたファイル（chunk=False、status='success'）を保存するために使用されますが、トランスコード中のファイル（chunk=True、status='pending/etc'）も保存します
 
-## 6. Working with the automated tests
+（括弧を開く）
+APIのみを介して通信する実験的な小さなサービス（現在リポジトリにコミットされていない）もあり、a）実行するタスクを取得し、b）結果を返します。つまり、リクエストを行い、ffmpegコマンドとファイルを受信し、ffmpegコマンドを実行し、結果を返します。このメカニズムを、より多くのサーバー/cpuを介して既存の動画を移行するために多くのインストールで使用しており、1つの問題（サーバーから削除する必要がある一時ファイルがあった（定期的なタスクを介して、それほど大きな問題ではない））を除いて機能しました
+（括弧を閉じる）
 
-This instructions assume that you're using the docker installation
 
-1. start docker-compose
+Encodeオブジェクトがsuccessとしてマークされ、chunk=Falseであり、したがってダウンロード/ストリームに利用できる場合、タスクが開始され、ファイルのHLSバージョン（1 mp4 --> 複数の小さな.tsチャンク）が保存されます。これがFILES_Cになります
+
+このメカニズムにより、同じファイルシステムにアクセスできるワーカー（localhostまたは共有ネットワークファイルシステム（NFS/EFSなど）を介して）が同時に作業し、結果を生成できます。
+
+## 6. 自動テストでの作業
+
+この手順は、Dockerインストールを使用していることを前提としています
+
+1. docker-composeを起動
 
 ```
 docker compose up
 ```
 
-2. Install the requirements on `requirements-dev.txt ` on web container (we'll use the web container for this)
+2. webコンテナに`requirements-dev.txt`の要件をインストールします（このためにwebコンテナを使用します）
 
 ```
 docker compose exec -T web pip install -r requirements-dev.txt
 ```
 
-3. Now you can run the existing tests
+3. 既存のテストを実行できます
 
 ```
 docker compose exec --env TESTING=True -T web pytest
 ```
 
-The `TESTING=True` is passed for Django to be aware this is a testing environment (so that it runs Celery tasks as functions for example and not as background tasks, since Celery is not started in the case of pytest)
+`TESTING=True`は、Djangoがこれがテスト環境であることを認識するために渡されます（たとえば、Celeryはpytestの場合は起動されないため、Celeryタスクをバックグラウンドタスクとしてではなく関数として実行します）
 
 
-4. You may try a single test, by specifying the path, for example
+4. パスを指定して、単一のテストを試すことができます。例：
 
 ```
 docker compose exec --env TESTING=True -T web pytest tests/test_fixtures.py
 ```
 
-5. You can also see the coverage
+5. カバレッジも確認できます
 
 ```
 docker compose exec --env TESTING=True -T web pytest --cov=. --cov-report=html
 ```
 
-and of course...you are very welcome to help us increase it ;)
+そしてもちろん...それを増やすのを手伝っていただければ大歓迎です ;)

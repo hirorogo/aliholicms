@@ -1,40 +1,40 @@
-# Developer Experience
-There is ongoing effort to provide a better developer experience and document it.
+# 開発者エクスペリエンス
+より良い開発者エクスペリエンスを提供し、それをドキュメント化する取り組みが進行中です。
 
-## How to develop locally with Docker
-First install a recent version of [Docker](https://docs.docker.com/get-docker/), and [Docker Compose](https://docs.docker.com/compose/install/).
+## Dockerでローカル開発する方法
+まず、最新バージョンの[Docker](https://docs.docker.com/get-docker/)と[Docker Compose](https://docs.docker.com/compose/install/)をインストールします。
 
-Then run `docker compose -f docker-compose-dev.yaml up`
+次に`docker compose -f docker-compose-dev.yaml up`を実行します
 
 ```
 user@user:~/mediacms$ docker compose -f docker-compose-dev.yaml up
 ```
 
-In a few minutes the app will be available at http://localhost . Login via admin/admin
+数分でアプリがhttp://localhostで利用可能になります。admin/adminでログインします
 
-### What does docker-compose-dev.yaml do?
-It build the two images used for backend and frontend.
+### docker-compose-dev.yamlは何をしますか？
+バックエンドとフロントエンドに使用される2つのイメージをビルドします。
 
-* Backend: `mediacms/mediacms-dev:latest`
-* Frontend: `frontend`
+* バックエンド: `mediacms/mediacms-dev:latest`
+* フロントエンド: `frontend`
 
-and will start all services required for MediaCMS, as Celery/Redis for asynchronous tasks, PostgreSQL database, Django and React
+そして、MediaCMSに必要なすべてのサービス（非同期タスクのためのCelery/Redis、PostgreSQLデータベース、Django、React）を起動します
 
-For Django, the changes from the image produced by docker-compose.yaml are these:
+Djangoの場合、docker-compose.yamlによって生成されるイメージからの変更は次のとおりです：
 
-* Django runs in debug mode, with `python manage.py runserver`
-* uwsgi and nginx are not run
-* Django runs in Debug mode, with Debug Toolbar
-* Static files (js/css) are loaded from static/ folder
-* corsheaders is installed and configured to allow all origins
+* Djangoは`python manage.py runserver`でデバッグモードで実行されます
+* uwsgiとnginxは実行されません
+* Djangoはデバッグツールバー付きのデバッグモードで実行されます
+* 静的ファイル（js/css）はstatic/フォルダからロードされます
+* corsheadersがインストールされ、すべてのオリジンを許可するように設定されています
 
-For React, it will run `npm start` in the frontend folder, which will start the development server.
-Check it on http://localhost:8088/
+Reactの場合、frontendフォルダで`npm start`を実行し、開発サーバーを起動します。
+http://localhost:8088/で確認してください
 
-### How to develop in Django
-Django starts at http://localhost and is reloading automatically. Making any change to the python code should refresh Django.
+### Djangoで開発する方法
+Djangoはhttp://localhostで起動し、自動的にリロードされます。Pythonコードに変更を加えると、Djangoが更新されます。
 
-If Django breaks due to an error (eg SyntaxError, while editing the code), you might have to restart it
+Djangoがエラー（SyntaxErrorなど、コード編集中）によって壊れた場合、再起動する必要があるかもしれません
 
 ```
 docker compose -f docker-compose-dev.yaml restart web
@@ -42,42 +42,42 @@ docker compose -f docker-compose-dev.yaml restart web
 
 
 
-### How to develop in React
-React is started on http://localhost:8088/ , code is located in frontend/ , so making changes there should have instant effect on the page. Keep in mind that React is loading data from Django, and that it has to be built so that Django can serve it.
+### Reactで開発する方法
+Reactはhttp://localhost:8088/で起動し、コードはfrontend/にあります。そこで変更を加えると、ページに即座に反映されます。ReactはDjangoからデータをロードしており、Djangoが提供できるようにビルドする必要があることに注意してください。
 
-### Making changes to the frontend
+### フロントエンドの変更
 
-The way React is added is more complicated than the usual SPA project and this is because React is used as a library loaded by Django Templates, so it is not a standalone project and is not handling routes etc.
+Reactが追加される方法は、通常のSPAプロジェクトよりも複雑です。これは、ReactがDjangoテンプレートによってロードされるライブラリとして使用されるため、スタンドアロンプロジェクトではなく、ルートなどを処理していないためです。
 
-The two directories to consider are:
-* frontend/src , for the React files
-* templates/, for the Django templates.
+考慮すべき2つのディレクトリは次のとおりです：
+* frontend/src 、Reactファイル用
+* templates/、Djangoテンプレート用。
 
-Django is using a highly intuitive hierarchical templating system (https://docs.djangoproject.com/en/4.2/ref/templates/), where the base template is templates/root.html and all other templates are extending it.
+Djangoは非常に直感的な階層的テンプレートシステム（https://docs.djangoproject.com/en/4.2/ref/templates/）を使用しており、基本テンプレートはtemplates/root.htmlで、他のすべてのテンプレートはそれを拡張しています。
 
-React is called through the Django templates, eg templates/cms/media.html is loading js/media.js
+Reactはdjangoテンプレートを通じて呼び出されます。例えば、templates/cms/media.htmlはjs/media.jsをロードします
 
-In order to make changes to React code, edit code on frontend/src and check it's effect on http://localhost:8088/ . Once ready, build it and copy it to the Django static folder, so that it is served by Django.
+Reactコードに変更を加えるには、frontend/srcのコードを編集し、http://localhost:8088/でその効果を確認します。準備ができたら、ビルドしてDjangoの静的フォルダにコピーすると、Djangoによって提供されます。
 
-### Development workflow with the frontend
-1. Edit frontend/src/ files
-2. Check changes on http://localhost:8088/
-3. Build frontend with `docker compose -f docker-compose-dev.yaml exec frontend npm run dist`
-4. Copy static files to Django static folder with`cp -r frontend/dist/static/* static/`
-5. Restart Django - `docker compose -f docker-compose-dev.yaml restart web` so that it uses the new static files
-6. Commit the changes
+### フロントエンドでの開発ワークフロー
+1. frontend/src/ファイルを編集
+2. http://localhost:8088/で変更を確認
+3. `docker compose -f docker-compose-dev.yaml exec frontend npm run dist`でフロントエンドをビルド
+4. `cp -r frontend/dist/static/* static/`で静的ファイルをDjangoの静的フォルダにコピー
+5. Djangoを再起動 - `docker compose -f docker-compose-dev.yaml restart web` して新しい静的ファイルを使用
+6. 変更をコミット
 
-### Helper commands
-There is ongoing effort to provide helper commands, check the Makefile for what it supports. Eg
+### ヘルパーコマンド
+ヘルパーコマンドを提供する取り組みが進行中です。Makefileで何がサポートされているかを確認してください。例：
 
-Bash into the web container:
+webコンテナへのbash：
 
 ```
 user@user:~/mediacms$ make admin-shell
 root@ca8c1096726b:/home/mediacms.io/mediacms# ./manage.py shell
 ```
 
-Build the frontend:
+フロントエンドのビルド：
 
 ```
 user@user:~/mediacms$ make build-frontend
