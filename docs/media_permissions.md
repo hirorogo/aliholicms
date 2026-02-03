@@ -1,62 +1,62 @@
-# Media Permissions in MediaCMS
+# MediaCMSのメディアパーミッション
 
-This document explains the permission system in MediaCMS, which controls who can view, edit, and manage media files.
+このドキュメントは、メディアファイルの表示、編集、管理を制御するMediaCMSのパーミッションシステムについて説明します。
 
-## Overview
+## 概要
 
-MediaCMS provides a flexible permission system that allows fine-grained control over media access. The system supports:
+MediaCMSは、メディアアクセスに対するきめ細かな制御を可能にする柔軟なパーミッションシステムを提供します。システムは以下をサポートしています：
 
-1. **Basic permissions** - Public, private, and unlisted media
-2. **User-specific permissions** - Direct permissions granted to specific users
-3. **Role-Based Access Control (RBAC)** - Category-based permissions through group membership
+1. **基本パーミッション** - パブリック、プライベート、非公開メディア
+2. **ユーザー固有のパーミッション** - 特定のユーザーに付与される直接パーミッション
+3. **ロールベースアクセス制御（RBAC）** - グループメンバーシップを通じたカテゴリベースのパーミッション
 
-## Media States
+## メディアの状態
 
-Every media file has a state that determines its basic visibility:
+すべてのメディアファイルには、基本的な可視性を決定する状態があります：
 
-- **Public** - Visible to everyone
-- **Private** - Only visible to the owner and users with explicit permissions
-- **Unlisted** - Not listed in public listings but accessible via direct link
+- **パブリック** - すべての人に表示
+- **プライベート** - 所有者と明示的なパーミッションを持つユーザーのみに表示
+- **非公開** - 公開リストには表示されませんが、直接リンクでアクセス可能
 
 
-## User Roles
+## ユーザーロール
 
-MediaCMS has several user roles that affect permissions:
+MediaCMSには、パーミッションに影響するいくつかのユーザーロールがあります：
 
-- **Regular User** - Can upload and manage their own media
-- **Advanced User** - Additional capabilities (configurable)
-- **MediaCMS Editor** - Can edit and review content across the platform
-- **MediaCMS Manager** - Full management capabilities
-- **Admin** - Complete system access
+- **通常ユーザー** - 自分のメディアをアップロードして管理できます
+- **高度なユーザー** - 追加機能（設定可能）
+- **MediaCMSエディター** - プラットフォーム全体でコンテンツを編集およびレビューできます
+- **MediaCMSマネージャー** - 完全な管理機能
+- **管理者** - システム全体へのアクセス
 
-## Direct Media Permissions
+## 直接メディアパーミッション
 
-The `MediaPermission` model allows granting specific permissions to individual users:
+`MediaPermission`モデルは、個々のユーザーに特定のパーミッションを付与できます：
 
-### Permission Levels
+### パーミッションレベル
 
-- **Viewer** - Can view the media even if it's private
-- **Editor** - Can view and edit the media's metadata
-- **Owner** - Full control, including deletion
+- **ビューア** - プライベートであってもメディアを表示できます
+- **エディター** - メディアのメタデータを表示および編集できます
+- **オーナー** - 削除を含む完全な制御
 
-## Role-Based Access Control (RBAC)
+## ロールベースアクセス制御（RBAC）
 
-When RBAC is enabled (`USE_RBAC` setting), permissions can be managed through categories and groups:
+RBACが有効（`USE_RBAC`設定）の場合、パーミッションはカテゴリとグループを通じて管理できます：
 
-1. Categories can be marked as RBAC-controlled
-2. Users are assigned to RBAC groups with specific roles
-3. RBAC groups are associated with categories
-4. Users inherit permissions to media in those categories based on their role
+1. カテゴリをRBAC制御としてマークできます
+2. ユーザーは特定のロールを持つRBACグループに割り当てられます
+3. RBACグループはカテゴリに関連付けられます
+4. ユーザーは、そのロールに基づいて、それらのカテゴリ内のメディアに対するパーミッションを継承します
 
-### RBAC Roles
+### RBACロール
 
-- **Member** - Can view media in the category
-- **Contributor** - Can view and edit media in the category
-- **Manager** - Full control over media in the category
+- **メンバー** - カテゴリ内のメディアを表示できます
+- **コントリビューター** - カテゴリ内のメディアを表示および編集できます
+- **マネージャー** - カテゴリ内のメディアに対する完全な制御
 
-## Permission Checking Methods
+## パーミッション確認メソッド
 
-The User model provides several methods to check permissions:
+Userモデルは、パーミッションを確認するためのいくつかのメソッドを提供します：
 
 ```python
 # From users/models.py
@@ -73,29 +73,29 @@ def has_owner_access_to_media(self, media):
     # ...
 ```
 
-## How Permissions Are Applied
+## パーミッションの適用方法
 
-When a user attempts to access media, the system checks permissions in this order:
+ユーザーがメディアにアクセスしようとすると、システムは次の順序でパーミッションを確認します：
 
-1. Is the media public? If yes, allow access.
-2. Is the user the owner of the media? If yes, allow full access.
-3. Does the user have direct permissions through MediaPermission? If yes, grant the corresponding access level.
-4. If RBAC is enabled, does the user have access through category membership? If yes, grant the corresponding access level.
-5. If none of the above, deny access.
+1. メディアはパブリックですか？はいの場合、アクセスを許可します。
+2. ユーザーはメディアの所有者ですか？はいの場合、完全なアクセスを許可します。
+3. ユーザーはMediaPermissionを通じて直接パーミッションを持っていますか？はいの場合、対応するアクセスレベルを付与します。
+4. RBACが有効な場合、ユーザーはカテゴリメンバーシップを通じてアクセスできますか？はいの場合、対応するアクセスレベルを付与します。
+5. 上記のいずれでもない場合、アクセスを拒否します。
 
-## Media Sharing
+## メディアの共有
 
-Users can share media with others by:
+ユーザーは次の方法で他のユーザーとメディアを共有できます：
 
-1. Making it public or unlisted
-2. Granting direct permissions to specific users
-3. Adding it to a category that's accessible to an RBAC group
+1. パブリックまたは非公開にする
+2. 特定のユーザーに直接パーミッションを付与する
+3. RBACグループがアクセスできるカテゴリに追加する
 
-## Implementation Details
+## 実装の詳細
 
-### Media Listing
+### メディアリスト
 
-When listing media, the system filters based on permissions:
+メディアをリストする際、システムはパーミッションに基づいてフィルタリングします：
 
 ```python
 # Simplified example from files/views/media.py
@@ -118,9 +118,9 @@ def _get_media_queryset(self, request, user=None):
     return listable_media.union(user_media, rbac_media)
 ```
 
-### Permission Checking
+### パーミッション確認
 
-The system uses helper methods to check permissions:
+システムはヘルパーメソッドを使用してパーミッションを確認します：
 
 ```python
 # From users/models.py
@@ -148,19 +148,19 @@ def has_member_access_to_media(self, media):
     return media_permission_exists
 ```
 
-## Best Practices
+## ベストプラクティス
 
-1. **Default to Private** - Consider setting new uploads to private by default
-2. **Use Categories** - Organize media into categories for easier permission management
-3. **RBAC for Teams** - Use RBAC for team collaboration scenarios
-4. **Direct Permissions for Exceptions** - Use direct permissions for one-off sharing
+1. **デフォルトでプライベート** - 新しいアップロードをデフォルトでプライベートに設定することを検討してください
+2. **カテゴリを使用** - より簡単なパーミッション管理のためにメディアをカテゴリに整理します
+3. **チーム向けRBAC** - チームコラボレーションシナリオにはRBACを使用します
+4. **例外的な直接パーミッション** - 一度限りの共有には直接パーミッションを使用します
 
-## Configuration
+## 設定
 
-The permission system can be configured through several settings:
+パーミッションシステムは、いくつかの設定を通じて構成できます：
 
-- `USE_RBAC` - Enable/disable Role-Based Access Control
+- `USE_RBAC` - ロールベースアクセス制御の有効/無効
 
-## Conclusion
+## 結論
 
-MediaCMS provides a flexible and powerful permission system that can accommodate various use cases, from simple personal media libraries to complex team collaboration scenarios with fine-grained access control.
+MediaCMSは、シンプルな個人メディアライブラリから、きめ細かなアクセス制御を備えた複雑なチームコラボレーションシナリオまで、さまざまなユースケースに対応できる柔軟で強力なパーミッションシステムを提供します。
