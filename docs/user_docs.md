@@ -1,109 +1,109 @@
-# Users documentation
+# ユーザードキュメント
 
-## Table of contents
-- [Uploading media](#uploading-media)
-- [Downloading media](#downloading-media)
-- [Adding captions/subtitles](#adding-captionssubtitles)
-- [Search media](#search-media)
-- [Using Timestamps for sharing](#using-timestamps-for-sharing)
-- [Mentionning users in comments](#Mentionning-users-in-comments)
-- [Show comments in the Timebar](#Show-comments-in-the-Timebar)
-- [Share media](#share-media)
-- [Embed media](#embed-media)
-- [Customize my profile options](#customize-my-profile-options)
-- [Trim videos](#trim-videos)
+## 目次
+- [メディアのアップロード](#メディアのアップロード)
+- [メディアのダウンロード](#メディアのダウンロード)
+- [キャプション/字幕の追加](#キャプション字幕の追加)
+- [メディアの検索](#メディアの検索)
+- [タイムスタンプを使用した共有](#タイムスタンプを使用した共有)
+- [コメントでユーザーをメンション](#コメントでユーザーをメンション)
+- [タイムバーにコメントを表示](#タイムバーにコメントを表示)
+- [メディアの共有](#メディアの共有)
+- [メディアの埋め込み](#メディアの埋め込み)
+- [プロフィールオプションのカスタマイズ](#プロフィールオプションのカスタマイズ)
+- [動画のトリミング](#動画のトリミング)
 
-## Uploading media
+## メディアのアップロード
 
-### How to Upload Media
+### メディアのアップロード方法
 
-Uploading media is as simple as clicking the _Upload Media_ button, waiting for media to upload, and then clicking the media to add metadata (title, description etc.) by filling out a form.
+メディアのアップロードは、_メディアをアップロード_ ボタンをクリックし、メディアのアップロードが完了するのを待ち、メディアをクリックしてフォームに記入してメタデータ（タイトル、説明など）を追加するだけで簡単に行えます。
 
-#### Click Upload Button
+#### アップロードボタンをクリック
 
-Click the _Upload Media_ button from the right-side of the screen at the top:
+画面上部の右側にある _メディアをアップロード_ ボタンをクリックします：
 
 <p align="left">
     <img src="./images/Click-Upload-Media-button.png"/>
 </p>
 
-#### Upload Page
+#### アップロードページ
 
-Clicking the _Upload Media_ button takes you to the upload page at a URL like this:
+_メディアをアップロード_ ボタンをクリックすると、次のようなURLのアップロードページに移動します：
 
 https://demo.mediacms.io/upload
 
-#### Click Browse Button
+#### 参照ボタンをクリック
 
-Here you should click the _"Browse your files"_ button (or drag and drop a file from your desktop):
+ここで _「ファイルを参照」_ ボタンをクリックします（またはデスクトップからファイルをドラッグ&ドロップします）：
 
 <p align="left">
     <img src="./images/Click-Browse-button.png"/>
 </p>
 
-#### Select media file and click Open button
+#### メディアファイルを選択して開くボタンをクリック
 
-Select the media file that you want to upload and click the _"Open"_ button:
+アップロードするメディアファイルを選択し、_「開く」_ ボタンをクリックします：
 
 <p align="left">
     <img src="./images/Select-Media-File-Click-Open.png"/>
 </p>
 
-#### Wait for file to upload
+#### ファイルのアップロードが完了するのを待つ
 
-Wait for the file to finish uploading:
+ファイルのアップロードが完了するまで待ちます：
 
 <p align="left">
     <img src="./images/Uploading.png"/>
 </p>
 
-#### Pause uploading
+#### アップロードを一時停止
 
-If you want you can pause upload by clicking _Pause button_:
+必要に応じて、_一時停止ボタン_ をクリックしてアップロードを一時停止できます：
 
 <p align="left">
     <img src="./images/Pause-button.png"/>
 </p>
 
-#### Continue uploading
+#### アップロードを続行
 
-Continue upload by clicking _Continue button_:
+_続行ボタン_ をクリックしてアップロードを続行します：
 
 <p align="left">
     <img src="./images/Continue-button.png"/>
 </p>
 
-#### Wait for media to finish Processing
+#### メディアの処理が完了するのを待つ
 
-Wait for the media file to finish Processing:
+メディアファイルの処理が完了するまで待ちます：
 
 <p align="left">
     <img src="./images/Processing.png"/>
 </p>
 
-#### Click View media button
+#### メディアを表示ボタンをクリック
 
-Click the View media button to open the media page:
+メディアを表示ボタンをクリックして、メディアページを開きます：
 
 <p align="left">
     <img src="./images/Click-View-media-button.png"/>
 </p>
 
-#### Media will be in the encoding queue
+#### メディアはエンコードキューに入ります
 
-The media will take some time to finish encoding (MediaCMS will transcode the file to several formats and resolutions). Meanwhile you can edit the media file to add metadata.
+メディアのエンコードが完了するまでに時間がかかります（MediaCMSはファイルを複数のフォーマットと解像度にトランスコードします）。その間に、メディアファイルを編集してメタデータを追加できます。
 
-#### Click Edit Media button
+#### メディアを編集ボタンをクリック
 
-Click the EDIT MEDIA button to add metadata and configure the poster image:
+EDIT MEDIAボタンをクリックして、メタデータを追加し、ポスター画像を設定します：
 
 <p align="left">
     <img src="./images/Click-Edit-Media-button.png"/>
 </p>
 
-#### Add Metadata (Summary, Description etc.)
+#### メタデータを追加（概要、説明など）
 
-Make sure you fill in all the required fields, and try to complete as many of the non-required fields as possible. This ensures the database is populated with useful meta-data to help others access useful information about you and your video.
+すべての必須フィールドに入力し、できるだけ多くの任意フィールドも入力してください。これにより、データベースに有用なメタデータが入力され、他のユーザーがあなたやあなたの動画に関する有用な情報にアクセスできるようになります。
 
 <p align="left">
     <img src="./images/Edit-Media-Metadata-1.png"/>
@@ -115,31 +115,31 @@ Make sure you fill in all the required fields, and try to complete as many of th
 
 
 
-## Downloading media
+## メディアのダウンロード
 
-MediaCMS offers a configurable option whereby users can make their media files available for download. Downloads are available for transcoded files, and the original file.
+MediaCMSは、ユーザーがメディアファイルをダウンロード可能にする設定可能なオプションを提供しています。トランスコードされたファイルとオリジナルファイルのダウンロードが利用できます。
 
-#### How To Enable Download
+#### ダウンロードを有効にする方法
 
-Visit the media view page and choose the EDIT MEDIA button.
+メディア表示ページにアクセスし、EDIT MEDIAボタンを選択します。
 
-Select the checkbox for "Allow Downloads"
+「ダウンロードを許可」のチェックボックスを選択します
 
-#### How To Download Media
+#### メディアをダウンロードする方法
 
-Visit the media view page and click the DOWNLOAD button below the video player.
+メディア表示ページにアクセスし、動画プレーヤーの下にあるDOWNLOADボタンをクリックします。
 
 <p align="left">
     <img src="./images/Click-Download-Button.png">
 </p>
 
-Choose the version you wish to download - a transcoded file or the original file:
+ダウンロードするバージョンを選択します - トランスコードされたファイルまたはオリジナルファイル：
 
 <p align="left">
     <img src="./images/Click-version-download.png">
 </p>
 
-Choose Save File and click the OK button.
+ファイルを保存を選択し、OKボタンをクリックします。
 
 <p align="left">
     <img src="./images/Save-File.png">
@@ -147,87 +147,87 @@ Choose Save File and click the OK button.
 
 
 
-## Adding captions/subtitles
+## キャプション/字幕の追加
 
-With MediaCMS you can add subtitles/captions to your video by uploading a subtitles file in the popular .vtt format.
+MediaCMSでは、人気のある.vtt形式の字幕ファイルをアップロードして、動画に字幕/キャプションを追加できます。
 
-### Visit Media Page & Click EDIT SUBTITLE Button
+### メディアページにアクセスしてEDIT SUBTITLEボタンをクリック
 
-Visit the "single media page" for the media you wish to add subtitles/captions to and click the EDIT SUBTITLES button:
+字幕/キャプションを追加したいメディアの「単一メディアページ」にアクセスし、EDIT SUBTITLESボタンをクリックします：
 
 <p align="left">
     <img src="./images/Click-EDIT-SUBTITLE.png"/>
 </p>
 
-### Upload Subtitles in .vtt Format
+### .vtt形式で字幕をアップロード
 
-Click the Language menu to select the correct language for your Subtitles/Captions file:
+言語メニューをクリックして、字幕/キャプションファイルの正しい言語を選択します：
 
 <p align="left">
     <img src="./images/Click-Subtitle-Language-Menu.png"/>
 </p>
 
-Choose the correct Language for your file:
+ファイルの正しい言語を選択します：
 
 <p align="left">
     <img src="./images/Subtitles-captions1.png"/>
 </p>
 
-Click Browse to find a subtitles/captions file on your computer (if your file is not in the .vtt format, you may find a conversion service on the Internet):
+参照をクリックして、コンピュータ上の字幕/キャプションファイルを見つけます（ファイルが.vtt形式でない場合は、インターネット上で変換サービスを見つけることができます）：
 
 <p align="left">
     <img src="./images/Subtitles-captions2.png"/>
 </p>
 
-Choose a .vtt subtitles/captions file from your computer:
+コンピュータから.vtt字幕/キャプションファイルを選択します：
 
 <p align="left">
     <img src="./images/Subtitles-captions3.png"/>
 </p>
 
-Click the Add button to add the file to your media:
+追加ボタンをクリックして、メディアにファイルを追加します：
 
 <p align="left">
     <img src="./images/Click-ADD-button.png"/>
 </p>
 
-### View Subtitles/Captions in Video Player
+### ビデオプレーヤーで字幕/キャプションを表示
 
-You can now watch the captions/subtitles play back in the video player - and toggle display on/off by clicking the CC button:
+ビデオプレーヤーでキャプション/字幕の再生を見ることができます - CCボタンをクリックして表示のオン/オフを切り替えます：
 
 <p align="left">
     <img src="./images/CC-display.png"/>
 </p>
 
-## Using Timestamps for sharing
+## タイムスタンプを使用した共有
 
-### Using Timestamp in the URL
+### URLでタイムスタンプを使用
 
-An additional GET parameter 't' can be added in video URL's to start the video at the given time. The starting time has to be given in seconds.
+動画URLに追加のGETパラメータ「t」を追加して、指定された時間から動画を開始できます。開始時間は秒単位で指定する必要があります。
 
 <p align="left">
     <img src="./images/Demo1.png"/>
 </p>
 
-Additionally the share button has an option to generate the URL with the timestamp at current second the video is.
+さらに、共有ボタンには、動画が現在再生されている秒数でタイムスタンプ付きのURLを生成するオプションがあります。
 
 <p align="left">
     <img src="./images/Demo2.png"/>
 </p>
 
-### Using Timestamp in the comments
+### コメントでタイムスタンプを使用
 
-Comments can also include timestamps. They are automatically detected upon posting the comment, and will be in the form of an hyperlink link in the comment. The timestamps in the comments have to follow the format HH:MM:SS or MM:SS
+コメントにもタイムスタンプを含めることができます。コメントを投稿すると自動的に検出され、コメント内のハイパーリンクの形式になります。コメント内のタイムスタンプは、HH:MM:SSまたはMM:SSの形式に従う必要があります
 
 <p align="left">
     <img src="./images/Demo3.png"/>
 </p>
 
-## Mentionning users in comments
+## コメントでユーザーをメンション
 
-Comments can also mention other users by tagging with '@'. This will open suggestion box showing usernames, and the selection will refine as the user continues typing.
+コメントでは、「@」でタグ付けすることで他のユーザーをメンションすることもできます。これにより、ユーザー名を表示する提案ボックスが開き、ユーザーが入力を続けると選択が絞り込まれます。
 
-Comments send with mentions will contain a link to the user page, and can be setup to send a mail to the mentionned user.
+メンション付きで送信されたコメントには、ユーザーページへのリンクが含まれ、メンションされたユーザーにメールを送信するように設定できます。
 
 <p align="left">
     <img src="./images/Mention1.png"/>
@@ -236,29 +236,29 @@ Comments send with mentions will contain a link to the user page, and can be set
     <img src="./images/Mention4.png"/>
 </p>
 
-## Show comments in the Timebar
+## タイムバーにコメントを表示
 
-When enabled, comments including a timestamp will also be displayed in the current video Timebar as a little colorful dot. The comment can be previewed by hovering the dot (left image) and it will be displayed on top of the video when reaching the correct time (right image).
+有効にすると、タイムスタンプを含むコメントも、現在の動画のタイムバーに小さなカラフルなドットとして表示されます。ドットにカーソルを合わせるとコメントをプレビューでき（左の画像）、正しい時間に達すると動画の上に表示されます（右の画像）。
 
-Only comments with correct timestamps formats (HH:MM:SS or MM:SS) will be picked up and appear in the Timebar.
+正しいタイムスタンプ形式（HH:MM:SSまたはMM:SS）のコメントのみが取得され、タイムバーに表示されます。
 
 <p align="left">
-    <img src="./images/TimebarComments_Hover.png" height="180" alt="Comment preview on hover"/>
-    <img src="./images/TimebarComments_Hit.png" height="180" alt="Comment shown when the timestamp is reached "/>
+    <img src="./images/TimebarComments_Hover.png" height="180" alt="カーソルを合わせたときのコメントプレビュー"/>
+    <img src="./images/TimebarComments_Hit.png" height="180" alt="タイムスタンプに達したときに表示されるコメント"/>
 </p>
 
-## Search media
-How search can be used
+## メディアの検索
+検索の使用方法
 
-## Share media
-How to share media
+## メディアの共有
+メディアを共有する方法
 
-## Embed media
-How to use the embed media option
+## メディアの埋め込み
+メディア埋め込みオプションの使用方法
 
-## Customize my profile options
-Customize profile and channel
+## プロフィールオプションのカスタマイズ
+プロフィールとチャンネルのカスタマイズ
 
-## Trim videos
-Once a video is uploaded, you can trim it to create a new video or to replace the original one. You can also create segments of the video, which will be available as separate videos. Edit the video and click on the "Trime Video" option. If the original video has finished processing (encodings are created for all resolutions), then this is an action that runs instantly. If the original video hasn't processed, which is the case when you upload a video and edit it right away, then the trim action will trigger processing of the video and will take some time to finish. In all cases, you get to see the original video (or the trimmed versions) immediately, so you are sure of what you have uploaded or trimmed, with a message that the video is being processed.
+## 動画のトリミング
+動画がアップロードされたら、新しい動画を作成したり、元の動画を置き換えたりするためにトリミングできます。動画のセグメントを作成することもでき、別の動画として利用できるようになります。動画を編集して「動画をトリミング」オプションをクリックします。元の動画の処理が完了している場合（すべての解像度のエンコーディングが作成されている場合）、これは即座に実行されるアクションです。元の動画が処理されていない場合（動画をアップロードしてすぐに編集する場合）、トリミングアクションは動画の処理をトリガーし、完了するまでに時間がかかります。いずれの場合も、元の動画（またはトリミングされたバージョン）をすぐに表示できるため、アップロードまたはトリミングしたものを確認でき、動画が処理中であることを示すメッセージが表示されます。
 

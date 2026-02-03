@@ -1,17 +1,17 @@
 ---
-name: Feature request
-about: Suggest an idea
+name: 機能リクエスト
+about: アイデアを提案する
 title: ''
 labels: 'issue: enhancement'
 assignees: mgogoulos
 
 ---
 
-**Describe the feature you'd like**
-A clear and concise description of what you want to happen.
+**実装してほしい機能の説明**
+実現してほしいことの明確で簡潔な説明。
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**検討した代替案の説明**
+検討した代替ソリューションや機能の明確で簡潔な説明。
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**追加のコンテキスト**
+機能リクエストに関するその他のコンテキストやスクリーンショットをここに追加してください。

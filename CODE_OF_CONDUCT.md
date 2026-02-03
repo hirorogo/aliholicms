@@ -1,13 +1,13 @@
-# Contributor Code of Conduct
+# 貢献者行動規範
 
-As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
+このプロジェクトの貢献者およびメンテナーとして、私たちは、問題の報告、機能リクエストの投稿、ドキュメントの更新、プルリクエストやパッチの提出、その他の活動を通じて貢献するすべての人々を尊重することを誓います。
 
-We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
+私たちは、経験レベル、性別、性自認と表現、性的指向、障害、外見、体型、人種、民族、年齢、宗教に関係なく、すべての人にとってこのプロジェクトへの参加がハラスメントのない体験となることをお約束します。
 
-Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
+参加者による許容できない行動の例には、性的な言語や画像の使用、中傷的なコメントや個人攻撃、トローリング、公的または私的なハラスメント、侮辱、またはその他の非専門的な行為が含まれます。
 
-Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.
+プロジェクトのメンテナーは、この行動規範に沿わないコメント、コミット、コード、wikiの編集、イシュー、およびその他の貢献を削除、編集、または拒否する権利と責任を有します。行動規範に従わないプロジェクトのメンテナーは、プロジェクトチームから削除される場合があります。
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.
+虐待的、ハラスメント的、またはその他の許容できない行動の事例は、イシューを開くか、1人以上のプロジェクトメンテナーに連絡することで報告できます。
 
-This Code of Conduct is adapted from the [Contributor Covenant](http:contributor-covenant.org), version 1.0.0, available at https://www.contributor-covenant.org/version/1/0/0/code-of-conduct.html
+この行動規範は、[Contributor Covenant](http:contributor-covenant.org)のバージョン1.0.0から採用されており、https://www.contributor-covenant.org/version/1/0/0/code-of-conduct.html で入手できます
